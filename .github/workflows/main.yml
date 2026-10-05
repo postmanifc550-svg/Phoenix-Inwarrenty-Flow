@@ -17,6 +17,8 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
       - name: Install Newman & Reporters
         run: |
@@ -29,7 +31,12 @@ jobs:
              -e QA.postman_environment.json \
              -d testdata.csv \
              -r cli,htmlextra
-             
+
+      - name : Newman Report
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: Newman Report
+          path: newman/*.html
 
 
 
