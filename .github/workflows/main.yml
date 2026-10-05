@@ -15,35 +15,30 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
+      - name: Steup Node and NPM
+        uses: actions/setup-node@v6.5.0
 
-      - name: Install Newman & Reporters
+      - name: setup Newman and html report
         run: |
              npm install -g newman
              npm install -g newman-reporter-htmlextra
 
-      - name: Run the Postman Collection With newman
+      - name: Run postman collection with newman
         run: |
-             newman run 'Inwarranty-flow-Collection ExtData.postman_collection.json' \
-             -e QA.postman_environment.json \
-             -d testdata.csv \
-             -r cli,htmlextra
+             newman run Inwarranty-flow-Collection ExtData.postman_collection.json\
+             -e QA.postman_environment.json\
+             -d testdata.csv\
+             -r html,cli,htmlextra
 
-      - name : Newman Report
-        if: always()
+      - name: Archive reports
         uses: actions/upload-artifact@v7.0.1
-        with:
+        with: 
           name: Newman Report
           path: newman/*.html
 
 
-
-
-
-
+    
+  
 
 
 
