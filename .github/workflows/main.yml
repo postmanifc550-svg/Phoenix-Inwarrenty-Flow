@@ -25,9 +25,9 @@ jobs:
 
       - name: Run postman collection with newman
         run: |
-             newman run Inwarranty-flow-Collection ExtData.postman_collection.json\
-             -e QA.postman_environment.json\
-             -d testdata.csv\
+             newman run Inwarranty-flow-Collection ExtData.postman_collection.json \
+             -e QA.postman_environment.json \
+             -d testdata.csv \
              -r html,cli,htmlextra
 
       - name: Archive reports
