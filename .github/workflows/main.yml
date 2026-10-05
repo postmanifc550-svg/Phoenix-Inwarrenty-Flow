@@ -59,7 +59,7 @@ jobs:
           body: |
                 Hi,
                 In-warrenty Flow execution has has been executed. The report has been published.
-
+          attachments: ${{ secrets.ATTACHMENTS }}
                 
           
           
