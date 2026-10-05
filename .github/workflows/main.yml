@@ -38,6 +38,7 @@ jobs:
           path: newman/*.html
 
       - name: GitHub Pages action
+        if: always()
         uses: peaceiris/actions-gh-pages@v4.1.0
         with:
           github_token : ${{ secrets.GITHUB_TOKEN}}
