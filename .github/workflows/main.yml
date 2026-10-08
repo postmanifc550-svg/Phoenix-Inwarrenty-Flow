@@ -10,7 +10,7 @@ on:
 
 jobs:
   run-tests:
-    runs-on: ip-172-31-24-208
+    runs-on: ec2-github-runner
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
