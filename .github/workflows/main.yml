@@ -10,7 +10,7 @@ on:
 
 jobs:
   run-tests:
-    runs-on: ec2-github-runner
+    runs-on: my-Ec2-Instance
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
